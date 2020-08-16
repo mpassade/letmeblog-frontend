@@ -5,4 +5,31 @@ html {
 html body {
   background: linear-gradient(225deg, #ff4c4c, rgba(0, 0, 0, 0)), linear-gradient(135deg, #ffb834, rgba(0, 0, 0, 0)), linear-gradient(360deg, #ffff6a, rgba(0, 0, 0, 0));
 }
+
+.main {
+  text-align: center;
+  margin-top: 11rem;
+}
+
+.main .lmb {
+  color: white;
+  font-size: 8em;
+  font-family: 'Coiny';
+  white-space: nowrap;
+}
+
+.main .searchbox {
+  width: 30%;
+  height: 1.6em;
+  font-size: 1em;
+  text-align: center;
+  color: #727272;
+  background: white url("/images/search.png") no-repeat 0 50%/1.45em;
+  border: none;
+  border-radius: 25px;
+}
+
+.main .searchbox:focus {
+  outline: none;
+}
 /*# sourceMappingURL=style.css.map */

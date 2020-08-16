@@ -1,0 +1,13 @@
+.searchbox {
+    width: 30%;
+    height: 1.6em;
+    font-size: 1em;
+    text-align: center;
+    color: #727272;
+    background: white url('/images/search.png') no-repeat 0 50% / 1.45em;
+    border: none;
+    border-radius: 25px;
+    &:focus {
+        outline: none;
+    }
+}

@@ -1,0 +1,6 @@
+.main {
+    text-align: center;
+    margin-top: 11rem;
+    @import './header';
+    @import './search';
+}

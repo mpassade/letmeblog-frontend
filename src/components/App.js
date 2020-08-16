@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import Hd
+import Header from './Header'
+import Search from './Search'
+import Nav from './Nav'
 
 class App extends Component {
   componentDidMount(){
@@ -8,7 +10,11 @@ class App extends Component {
   render(){
     return (
       <>
-        <Header/>
+      <Nav/>
+        <div className='main'>
+          <Header/>
+          <Search/>
+        </div>
       </>
     )
   }
