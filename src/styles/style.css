@@ -6,6 +6,18 @@ html body {
   background: linear-gradient(225deg, #ff4c4c, rgba(0, 0, 0, 0)), linear-gradient(135deg, #ffb834, rgba(0, 0, 0, 0)), linear-gradient(360deg, #ffff6a, rgba(0, 0, 0, 0));
 }
 
+.nav {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+}
+
+.nav span {
+  color: white;
+  font-size: 1.2em;
+  font-family: 'Coiny';
+}
+
 .main {
   text-align: center;
   margin-top: 11rem;
@@ -20,6 +32,7 @@ html body {
 
 .main .searchbox {
   width: 30%;
+  min-width: 10em;
   height: 1.6em;
   font-size: 1em;
   text-align: center;
