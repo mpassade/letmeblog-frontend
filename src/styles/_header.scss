@@ -1,6 +1,6 @@
 .lmb {
     color: white;
-    font-size: 8em;
+    font-size: calc(40px + (128 - 40) * ((100vw - 300px) / (1600 - 300)));
     font-family: 'Coiny';
     white-space: nowrap;
 }
