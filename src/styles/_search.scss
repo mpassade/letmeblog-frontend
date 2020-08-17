@@ -1,13 +1,15 @@
 .searchbox {
     width: 30%;
-    min-width: 10em;
-    height: 1.6em;
+    min-width: 10rem;
+    height: 1.6rem;
     font-size: 1em;
     text-align: center;
-    color: #727272;
     background: white url('/images/search.png') no-repeat 0 50% / 1.45em;
     border: none;
     border-radius: 25px;
+    ::placeholder {
+        color: #727272;
+    }
     &:focus {
         outline: none;
     }

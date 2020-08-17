@@ -1,4 +1,4 @@
-.login {
+.register {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,7 +21,9 @@
         margin-top: 1rem;
         border: 1px solid black;
         border-radius: 25px;
-        text-align: center;
+        // text-align: center;
+        // padding-left: 20px;
+        text-indent: 1rem;
         font-size: 1em;
         width: 70%;
         height: 2rem;
@@ -32,16 +34,13 @@
             outline: none;
         }
     }
-    div {
+    a {
         width: 70%;
-        display: flex;
-        justify-content: space-between;
         margin-top: 1.5rem;
-        a {
-            white-space: nowrap;
-            color: #FF5854;
-            text-decoration: none;
-        }
+        white-space: nowrap;
+        color: #FF5854;
+        text-decoration: none;
+        text-align: right;
     }
     button {
         margin-top: 3.5rem;
@@ -50,9 +49,7 @@
         background: #FFAB5F;
         width: 10rem;
         height: 3rem;
-        // color: white;
         font-size: 1.5em;
         font-family: 'Coiny';
-        // padding: 1rem;
     }
 }

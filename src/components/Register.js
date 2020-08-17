@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Nav from './Nav'
-import Input from './Input'
-
 
 const Register = () => {
     return (
@@ -10,12 +8,21 @@ const Register = () => {
         <Nav
             page='register'
         />
-        <div className='register'>
-            <header>Register</header>
-            <form>
-                <Input/>
-            </form>
-        </div>
+        <form>
+            <div className='register'>
+                <header>Register</header>
+                <input
+                    type='email'
+                    placeholder='Email Address'
+                />
+                <input
+                    type='text'
+                    placeholder='Username'
+                />
+                <Link to='/login'>Already have an account?<br/>Login here</Link>
+                <button>Sign Up</button>
+            </div>
+        </form>
         </>
     )
 }
