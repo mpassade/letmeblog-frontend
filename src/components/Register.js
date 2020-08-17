@@ -4,14 +4,14 @@ import Nav from './Nav'
 import Input from './Input'
 
 
-const Login = () => {
+const Register = () => {
     return (
         <>
         <Nav
-            page='login'
+            page='register'
         />
-        <div className='login'>
-            <header>Login</header>
+        <div className='register'>
+            <header>Register</header>
             <form>
                 <Input/>
             </form>
@@ -20,4 +20,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Register

@@ -3,9 +3,9 @@ import React from 'react'
 const Header = () => {
     return (
         <>
-            <header className='lmb'>
-                Let Me Blog
-            </header>
+        <header className='lmb'>
+            Let Me Blog
+        </header>
         </>
     )
 }

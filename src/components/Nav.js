@@ -3,19 +3,24 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 const Nav = (props) => {
-    return (
-        <div className='nav'>
-            {props.page==='main' ?
+    let content = null
+    switch (true){
+        case (props.page==='main'):
+            content = 
                 <span>
                     <Link to='/login'>Login</Link> | <Link to='/register'>Register</Link>
                 </span>
-            : 
-            // props.page==='login' || props.page==='register' 
+            break
+        case (props.page==='register' || props.page==='login'):
+            content = 
                 <Link to='/'>
                     <img src='/images/home_not-selected.png'/>
                 </Link>
-            }
-            
+            break
+    }
+    return (
+        <div className='nav'>
+            {content}
         </div>
     )
 }
