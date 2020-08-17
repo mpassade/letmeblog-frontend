@@ -24,6 +24,10 @@ html body {
   color: inherit;
 }
 
+.nav img {
+  width: 1.8em;
+}
+
 .main {
   text-align: center;
   margin-top: 11rem;
@@ -50,5 +54,36 @@ html body {
 
 .main .searchbox:focus {
   outline: none;
+}
+
+.login, .register {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: 40rem;
+  width: 40%;
+  min-width: 15rem;
+  background: white;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.login header, .register header {
+  font-size: 3em;
+  font-family: 'Coiny';
 }
 /*# sourceMappingURL=style.css.map */

@@ -6,7 +6,9 @@ import Search from './Search'
 const Main = () => {
     return (
         <>
-        <Nav/>
+        <Nav
+            page='main'
+        />
         <div className='main'>
             <Header/>
             <Search/>

@@ -5,9 +5,14 @@ import { Link } from 'react-router-dom'
 const Login = () => {
     return (
         <>
-        <Nav/>
+        <Nav
+            page='login'
+        />
         <div className='login'>
-        
+            <header>Login</header>
+            <form>
+                
+            </form>
         </div>
         </>
     )
