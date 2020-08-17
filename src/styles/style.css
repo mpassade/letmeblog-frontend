@@ -19,6 +19,11 @@ html body {
   white-space: nowrap;
 }
 
+.nav span a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .main {
   text-align: center;
   margin-top: 11rem;
