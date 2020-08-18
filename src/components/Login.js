@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Nav from './Nav'
 
-const Login = () => {
+const Login = (props) => {
     return (
         <>
         <Nav
@@ -13,7 +13,7 @@ const Login = () => {
                 <header>Login</header>
                 <input
                     type='text'
-                    placeholder='Username or Email'
+                    placeholder='Username'
                 />
                 <input
                     type='password'

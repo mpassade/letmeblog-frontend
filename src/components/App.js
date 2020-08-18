@@ -6,16 +6,21 @@ import Register from './Register'
 
 
 class App extends Component {
-
+  inputChangedHandler = (event) => {
+    console.log('yo')
+  }
   componentDidMount(){
-    
   }
   render(){
     return (
       <BrowserRouter>
         <Route path='/' exact component={Main}/>
-        <Route path='/login' exact component={Login}/>
-        <Route path='/register' exact component={Register}/>
+        <Route path='/login' exact component={() => {
+          return <Login changed={this.inputChangedHandler}/>
+        }}/>
+        <Route path='/register' exact component={() => {
+          return <Register changed={this.inputChangedHandler}/>
+        }}/>
       </BrowserRouter>
     )
   }

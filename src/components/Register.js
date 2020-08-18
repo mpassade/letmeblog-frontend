@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Nav from './Nav'
 
-const Register = () => {
+const Register = (props) => {
     return (
         <>
         <Nav
@@ -12,8 +12,16 @@ const Register = () => {
             <div className='register'>
                 <header>Register</header>
                 <input
+                    type='text'
+                    placeholder='First Name'
+                />
+                <input
+                    type='text'
+                    placeholder='Last Name'
+                />
+                <input
                     type='email'
-                    placeholder='Email Address'
+                    placeholder='Email'
                 />
                 <input
                     type='text'
