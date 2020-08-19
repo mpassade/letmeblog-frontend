@@ -8,7 +8,7 @@ const Register = (props) => {
         <Nav
             page='register'
         />
-        <form>
+        <form onSubmit={props.checkInput}>
             <div className='register'>
                 <header>Register</header>
                 <input
@@ -28,7 +28,7 @@ const Register = (props) => {
                     placeholder='Username'
                 />
                 <Link to='/login'>Already have an account?<br/>Login here</Link>
-                <button>Sign Up</button>
+                <button type='submit'>Sign Up</button>
             </div>
         </form>
         </>

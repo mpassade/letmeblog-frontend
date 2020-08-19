@@ -54,5 +54,8 @@
         font-size: 1.5em;
         font-family: 'Coiny';
         // padding: 1rem;
+        &:focus {
+            outline: none;
+        }
     }
 }

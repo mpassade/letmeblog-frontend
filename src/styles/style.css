@@ -159,6 +159,10 @@ html body {
   font-family: 'Coiny';
 }
 
+.login button:focus {
+  outline: none;
+}
+
 .register {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -236,5 +240,9 @@ html body {
   height: 3rem;
   font-size: 1.5em;
   font-family: 'Coiny';
+}
+
+.register button:focus {
+  outline: none;
 }
 /*# sourceMappingURL=style.css.map */
