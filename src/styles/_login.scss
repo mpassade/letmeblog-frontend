@@ -17,8 +17,13 @@
         margin-top: 5rem;
     }
     span {
-        color: red;
         font-size: 1.2em;
+    }
+    .error {
+        color: red;
+    }
+    .success {
+        color: blue;
     }
     input {
         margin-top: 1rem;

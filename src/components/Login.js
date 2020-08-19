@@ -5,7 +5,10 @@ import axios from 'axios'
 
 class Login extends Component {
     state = {
-        error: [],
+        message: [{
+            type: '',
+            text: ''
+        }],
         input: {
             username: '',
             password: ''
@@ -24,12 +27,10 @@ class Login extends Component {
                 'Access-Control-Allow-Origin': '*'
             }
         }
-        axios.post('/login', this.state.input, axiosConfig).then(msg => {
-            if (msg.data.error){
-                this.setState({
-                    error: msg.data.error
-                })
-            }
+        axios.post('/login', this.state.input, axiosConfig).then(res => {
+            let message = [...this.state.message]
+            message[0] = res.data
+            this.setState({message})
         }).catch(err => {
             console.log(`Server Error: ${err}`)
         })
@@ -43,8 +44,15 @@ class Login extends Component {
             <form onSubmit={this.handleSubmit}>
                 <div className='login'>
                     <header>Login</header>
-                    {this.state.error.map((msg, idx) => {
-                        return <span key={idx}>{msg}</span>
+                    {this.state.message.map((msg, idx) => {
+                        return (
+                            <span
+                            key={idx}
+                            className={msg.type}
+                            >
+                                {msg.text}
+                            </span>
+                        )
                     })}
                     <input
                         type='text'

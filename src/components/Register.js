@@ -5,7 +5,10 @@ import axios from 'axios'
 
 class Register extends Component {
     state = {
-        error: [],
+        message: [{
+            type: '',
+            text: ''
+        }],
         input: {
             fname: '',
             lname: '',
@@ -26,11 +29,22 @@ class Register extends Component {
                 'Access-Control-Allow-Origin': '*'
             }
         }
-        axios.post('/register', this.state.input, axiosConfig).then(msg => {
-            if (msg.data.error){
+        axios.post('/register', this.state.input, axiosConfig).then(res => {
+            let message = [...this.state.message]
+            message[0] = res.data
+            if (message[0].type==='success'){
+                let input = {
+                    fname: '',
+                    lname: '',
+                    email: '',
+                    username: ''
+                }
                 this.setState({
-                    error: msg.data.error
+                    message,
+                    input
                 })
+            } else {
+                this.setState({message})
             }
         }).catch(err => {
             console.log(`Server Error: ${err}`)
@@ -43,34 +57,47 @@ class Register extends Component {
                 page='register'
             />
             <form onSubmit={this.handleSubmit}>
-                <div className='register'>
+                <div
+                className={'register' + (this.state.message[0].type==='success' ? ' large' : '')}
+                >{console.log(this.state)}
                     <header>Register</header>
-                    {this.state.error.map((msg, idx) => {
-                        return <span key={idx}>{msg}</span>
+                    {this.state.message.map((msg, idx) => {
+                        return (
+                            <span
+                            key={idx}
+                            className={msg.type}
+                            >
+                                {msg.text}
+                            </span>
+                        )
                     })}
                     <input
                         type='text'
                         placeholder='First Name'
                         name='fname'
                         onChange={this.handleChange}
+                        value={this.state.input.fname}
                     />
                     <input
                         type='text'
                         placeholder='Last Name'
                         name='lname'
                         onChange={this.handleChange}
+                        value={this.state.input.lname}
                     />
                     <input
                         type='email'
                         placeholder='Email'
                         name='email'
                         onChange={this.handleChange}
+                        value={this.state.input.email}
                     />
                     <input
                         type='text'
                         placeholder='Username'
                         name='username'
                         onChange={this.handleChange}
+                        value={this.state.input.username}
                     />
                     <Link to='/login'>Already have an account?<br/>Login here</Link>
                     <button type='submit'>Sign Up</button>

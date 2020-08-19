@@ -17,8 +17,16 @@
         margin-top: 3rem;
     }
     span {
-        color: red;
         font-size: 1.2em;
+        text-align: center;
+    }
+    .error {
+        color: red;
+    }
+    .success {
+        color: green;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
     input {
         margin-top: 1rem;
@@ -56,4 +64,7 @@
             outline: none;
         }
     }
+}
+.large {
+    height: 40rem;
 }

@@ -101,8 +101,15 @@ html body {
 }
 
 .login span {
-  color: red;
   font-size: 1.2em;
+}
+
+.login .error {
+  color: red;
+}
+
+.login .success {
+  color: blue;
 }
 
 .login input {
@@ -197,8 +204,18 @@ html body {
 }
 
 .register span {
-  color: red;
   font-size: 1.2em;
+  text-align: center;
+}
+
+.register .error {
+  color: red;
+}
+
+.register .success {
+  color: green;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .register input {
@@ -253,5 +270,9 @@ html body {
 
 .register button:focus {
   outline: none;
+}
+
+.large {
+  height: 40rem;
 }
 /*# sourceMappingURL=style.css.map */
