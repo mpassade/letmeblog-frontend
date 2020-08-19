@@ -1,23 +1,40 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Nav from './Nav'
+import axios from 'axios'
 
 class Register extends Component {
     state = {
-        error: []
+        error: [],
+        input: {
+            fname: '',
+            lname: '',
+            email: '',
+            username: ''
+        }
+    }
+    handleChange = (e) => {
+        let input = {...this.state.input}
+        input[e.target.name] = e.target.value
+        this.setState({input})
     }
     handleSubmit = (e) => {
         e.preventDefault()
-        const {fname, lname, email, username} = this.form
-        if (!fname.value || !lname.value || 
-        !email.value || !username.value){
-            this.setState({
-                error: ['All fields are required']
-            }) 
+        const axiosConfig = {
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+                'Access-Control-Allow-Origin': '*'
+            }
         }
-    }
-    getForm = (form) => {
-        this.form = form
+        axios.post('/register', this.state.input, axiosConfig).then(msg => {
+            if (msg.data.error){
+                this.setState({
+                    error: msg.data.error
+                })
+            }
+        }).catch(err => {
+            console.log(`Server Error: ${err}`)
+        })
     }
     render(){
         return (
@@ -25,7 +42,7 @@ class Register extends Component {
             <Nav
                 page='register'
             />
-            <form onSubmit={this.handleSubmit} ref={this.getForm}>
+            <form onSubmit={this.handleSubmit}>
                 <div className='register'>
                     <header>Register</header>
                     {this.state.error.map((msg, idx) => {
@@ -35,21 +52,25 @@ class Register extends Component {
                         type='text'
                         placeholder='First Name'
                         name='fname'
+                        onChange={this.handleChange}
                     />
                     <input
                         type='text'
                         placeholder='Last Name'
                         name='lname'
+                        onChange={this.handleChange}
                     />
                     <input
                         type='email'
                         placeholder='Email'
                         name='email'
+                        onChange={this.handleChange}
                     />
                     <input
                         type='text'
                         placeholder='Username'
                         name='username'
+                        onChange={this.handleChange}
                     />
                     <Link to='/login'>Already have an account?<br/>Login here</Link>
                     <button type='submit'>Sign Up</button>
