@@ -26,6 +26,8 @@ html body {
 
 .nav img {
   width: 1.8rem;
+  vertical-align: text-bottom;
+  padding-left: 1rem;
 }
 
 .main {
@@ -82,7 +84,7 @@ html body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 35rem;
+  height: 30rem;
   width: 40%;
   min-width: 25rem;
   background: white;
@@ -97,11 +99,12 @@ html body {
 .login header {
   font-size: 4em;
   font-family: 'Coiny';
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
 .login span {
   font-size: 1.2em;
+  text-align: center;
 }
 
 .login .error {
@@ -109,7 +112,7 @@ html body {
 }
 
 .login .success {
-  color: blue;
+  color: green;
 }
 
 .login input {
@@ -160,7 +163,7 @@ html body {
 }
 
 .login button {
-  margin-top: 3.5rem;
+  margin-top: 2.5rem;
   border: 1px solid #FFAB5F;
   border-radius: 25px;
   background: #FFAB5F;
@@ -274,5 +277,92 @@ html body {
 
 .large {
   height: 40rem;
+}
+
+.setPwd {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 30rem;
+  width: 40%;
+  min-width: 25rem;
+  background: white;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.setPwd header {
+  font-size: 4em;
+  font-family: 'Coiny';
+  margin-top: 4rem;
+}
+
+.setPwd span {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.setPwd .error {
+  color: red;
+}
+
+.setPwd .success {
+  color: green;
+}
+
+.setPwd input {
+  margin-top: 1rem;
+  border: 1px solid black;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 1em;
+  width: 70%;
+  height: 2rem;
+}
+
+.setPwd input ::-webkit-input-placeholder {
+  color: #727272;
+}
+
+.setPwd input :-ms-input-placeholder {
+  color: #727272;
+}
+
+.setPwd input ::-ms-input-placeholder {
+  color: #727272;
+}
+
+.setPwd input ::placeholder {
+  color: #727272;
+}
+
+.setPwd input:focus {
+  outline: none;
+}
+
+.setPwd button {
+  margin-top: 2rem;
+  border: 1px solid #FFAB5F;
+  border-radius: 25px;
+  background: #FFAB5F;
+  width: 10rem;
+  height: 3rem;
+  font-size: 1.5em;
+  font-family: 'Coiny';
+}
+
+.setPwd button:focus {
+  outline: none;
 }
 /*# sourceMappingURL=style.css.map */

@@ -17,6 +17,17 @@ const Nav = (props) => {
                     <img src='/images/home_not-selected.png'/>
                 </Link>
             break
+        case (props.page==='setPwd'):
+            content =
+                <>
+                <span>
+                    <Link to='/login'>Login</Link> | <Link to='/register'>Register</Link>
+                </span>
+                <Link to='/'>
+                    <img src='/images/home_not-selected.png'/>
+                </Link>
+                </>
+            break
     }
     return (
         <div className='nav'>

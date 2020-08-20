@@ -59,7 +59,7 @@ class Register extends Component {
             <form onSubmit={this.handleSubmit}>
                 <div
                 className={'register' + (this.state.message[0].type==='success' ? ' large' : '')}
-                >{console.log(this.state)}
+                >
                     <header>Register</header>
                     {this.state.message.map((msg, idx) => {
                         return (

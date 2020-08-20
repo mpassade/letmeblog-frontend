@@ -3,15 +3,16 @@ import { Link } from 'react-router-dom'
 import Nav from './Nav'
 import axios from 'axios'
 
-class Login extends Component {
+class SetPwd extends Component {
     state = {
         message: [{
             type: '',
             text: ''
         }],
         input: {
-            username: '',
-            password: ''
+            tempPass: '',
+            newPass: '',
+            confirmNew: ''
         }
     }
     handleChange = (e) => {
@@ -27,24 +28,23 @@ class Login extends Component {
                 'Access-Control-Allow-Origin': '*'
             }
         }
-        axios.post('/login', this.state.input, axiosConfig).then(res => {
+        axios.put(`/set-password/${this.props.match.params.id}`, this.state.input, axiosConfig).then(res => {
             let message = [...this.state.message]
             message[0] = res.data
             this.setState({message})
         }).catch(err => {
-            console.log('Test Error: ' ,err.response)
-            // console.log(`Server Error: ${err}`)
+            console.log(`Server Error: ${err}`)
         })
     }
     render(){
         return (
             <>
             <Nav
-                page='login'
+                page='setPwd'
             />
             <form onSubmit={this.handleSubmit}>
-                <div className='login'>
-                    <header>Login</header>
+                <div className='setPwd'>
+                    <header>Set Password</header>
                     {this.state.message.map((msg, idx) => {
                         return (
                             <span
@@ -56,22 +56,27 @@ class Login extends Component {
                         )
                     })}
                     <input
-                        type='text'
-                        placeholder='Username'
-                        name='username'
+                        type='password'
+                        placeholder='Temporary Password'
+                        name='tempPass'
                         onChange={this.handleChange}
+                        value={this.state.input.tempPass}
                     />
                     <input
                         type='password'
-                        placeholder='Password'
-                        name='password'
+                        placeholder='New Password'
+                        name='newPass'
                         onChange={this.handleChange}
+                        value={this.state.input.newPass}
                     />
-                    <div>
-                        <Link to='/forgot-password'>Forgot Password?</Link>
-                        <Link to='/register' style={{textAlign: 'right'}}>Don't have an account?<br/>Register here</Link>
-                    </div>
-                    <button type='submit'>Sign In</button>
+                    <input
+                        type='password'
+                        placeholder='Confirm New Password'
+                        name='confirmNew'
+                        onChange={this.handleChange}
+                        value={this.state.input.confirmNew}
+                    />
+                    <button type='submit'>Submit</button>
                 </div>
             </form>
             </>
@@ -79,4 +84,4 @@ class Login extends Component {
     }
 }
 
-export default Login
+export default SetPwd
