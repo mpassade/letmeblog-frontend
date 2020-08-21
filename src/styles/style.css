@@ -290,7 +290,7 @@ html body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 30rem;
+  height: 28rem;
   width: 40%;
   min-width: 25rem;
   background: white;
@@ -303,9 +303,10 @@ html body {
 }
 
 .setPwd header {
-  font-size: 4em;
+  font-size: calc(48px + (64 - 48) * ((100vw - 300px) / (1600 - 300)));
   font-family: 'Coiny';
-  margin-top: 4rem;
+  margin-top: 3.5rem;
+  margin-bottom: -0.5rem;
 }
 
 .setPwd span {
@@ -315,10 +316,6 @@ html body {
 
 .setPwd .error {
   color: red;
-}
-
-.setPwd .success {
-  color: green;
 }
 
 .setPwd input {

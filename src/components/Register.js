@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import Nav from './Nav'
 import axios from 'axios'
 
@@ -14,7 +14,11 @@ class Register extends Component {
             lname: '',
             email: '',
             username: ''
-        }
+        },
+        isAuthenticated: false
+    }
+    isAuthenticated = () => {
+        return localStorage.getItem('token')
     }
     handleChange = (e) => {
         let input = {...this.state.input}
@@ -50,7 +54,15 @@ class Register extends Component {
             console.log(`Server Error: ${err}`)
         })
     }
+    componentDidMount(){
+        if (this.isAuthenticated()){
+            this.setState({isAuthenticated: true})
+        }
+    }
     render(){
+        if (this.state.isAuthenticated){
+            return <Redirect to='/profile'/>
+        }
         return (
             <>
             <Nav

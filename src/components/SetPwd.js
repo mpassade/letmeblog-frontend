@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import Nav from './Nav'
 import axios from 'axios'
 
@@ -13,7 +13,13 @@ class SetPwd extends Component {
             tempPass: '',
             newPass: '',
             confirmNew: ''
-        }
+        },
+        isAuthenticated: false,
+        goToLogin: false,
+        tempPwd: true
+    }
+    isAuthenticated = () => {
+        return localStorage.getItem('token')
     }
     handleChange = (e) => {
         let input = {...this.state.input}
@@ -31,12 +37,41 @@ class SetPwd extends Component {
         axios.put(`/set-password/${this.props.match.params.id}`, this.state.input, axiosConfig).then(res => {
             let message = [...this.state.message]
             message[0] = res.data
-            this.setState({message})
+            if (message[0].type==='success'){
+                this.setState({
+                    message,
+                    goToLogin: true
+                })
+            } else {
+                this.setState({message})
+            }
+        }).catch(err => {
+            console.log(`Server Error: ${err}`)
+        })
+    }
+    componentDidMount(){
+        if (this.isAuthenticated()){
+            return this.setState({isAuthenticated: true})
+        }
+        axios.get(`/check-temp-pwd/${this.props.match.params.id}`).then(res => {
+            return this.setState({tempPwd: res.data.tempPwd})
         }).catch(err => {
             console.log(`Server Error: ${err}`)
         })
     }
     render(){
+        if (this.state.isAuthenticated){
+            return <Redirect to='/profile'/>
+        }
+        if (this.state.goToLogin){
+            return <Redirect to={{
+                pathname: '/login',
+                state: {message: [...this.state.message]}
+            }}/>
+        }
+        if (!this.state.tempPwd){
+            return <Redirect to='/'/>
+        }
         return (
             <>
             <Nav

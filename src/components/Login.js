@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import Nav from './Nav'
 import axios from 'axios'
 
@@ -12,7 +12,11 @@ class Login extends Component {
         input: {
             username: '',
             password: ''
-        }
+        },
+        isAuthenticated: false
+    }
+    isAuthenticated = () => {
+        return localStorage.getItem('token')
     }
     handleChange = (e) => {
         let input = {...this.state.input}
@@ -28,15 +32,31 @@ class Login extends Component {
             }
         }
         axios.post('/login', this.state.input, axiosConfig).then(res => {
-            let message = [...this.state.message]
-            message[0] = res.data
-            this.setState({message})
+            if (res.data.type==='error'){
+                let message = [...this.state.message]
+                message[0] = res.data
+                return this.setState({message})
+            }
+            localStorage.setItem('token', res.data.token)
+            this.setState({isAuthenticated: true})
         }).catch(err => {
-            console.log('Test Error: ' ,err.response)
-            // console.log(`Server Error: ${err}`)
+            console.log(`Server Error: ${err}`)
         })
     }
+    componentDidMount(){
+        if (this.isAuthenticated()){
+            return this.setState({isAuthenticated: true})
+        }
+        if (this.props.location.state){
+            let message = [...this.props.location.state.message]
+            this.props.history.replace('/login', null)
+            this.setState({message})
+        }
+    }
     render(){
+        if (this.state.isAuthenticated){
+            return <Redirect to='/profile'/>
+        }
         return (
             <>
             <Nav
@@ -75,6 +95,7 @@ class Login extends Component {
                 </div>
             </form>
             </>
+        
         )
     }
 }
