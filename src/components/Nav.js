@@ -35,13 +35,22 @@ const Nav = (props) => {
             content =
                 <>
                 <Link to='/home'>
-                    <img src='/images/home_not-selected.png'/>
+                    {props.page==='home' ? 
+                        <img src='/images/home_selected.png'/> :
+                        <img src='/images/home_not-selected.png'/>
+                    }
                 </Link>
                 <Link to='/search'>
-                    <img src='/images/search_not-selected.png'/>
+                    {props.page==='search' ? 
+                        <img src='/images/search_selected.png'/> :
+                        <img src='/images/search_not-selected.png'/>
+                    }
                 </Link>
                 <Link to='/profile'>
-                    <img src='/images/profile_selected.png'/>
+                    {props.page==='profile' ? 
+                        <img src='/images/profile_selected.png'/> :
+                        <img src='/images/profile_not-selected.png'/>
+                    }
                 </Link>
                 <span>
                     <Link
