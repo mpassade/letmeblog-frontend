@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
+import Nav from './Nav'
 import axios from 'axios'
 
 class Profile extends Component {
@@ -10,6 +11,7 @@ class Profile extends Component {
     isAuthenticated = () => {
         return localStorage.getItem('token')
     }
+
     componentDidMount(){
         if (!this.isAuthenticated()){
             return this.setState({isAuthenticated: false})
@@ -32,9 +34,12 @@ class Profile extends Component {
     render(){
         if (!this.state.isAuthenticated){
             return <Redirect to='/'/>
-        } console.log(this.state)
+        }
         return (
             <>
+            <Nav
+                page='profile'
+            />
             </>
         )
     }

@@ -4,6 +4,9 @@ import PropTypes from 'prop-types'
 
 const Nav = (props) => {
     let content = null
+    const logout = () => {
+        localStorage.removeItem('token')
+    }
     switch (true){
         case (props.page==='main'):
             content = 
@@ -26,6 +29,28 @@ const Nav = (props) => {
                 <Link to='/'>
                     <img src='/images/home_not-selected.png'/>
                 </Link>
+                </>
+            break
+        case (props.page==='profile'):
+            content =
+                <>
+                <Link to='/home'>
+                    <img src='/images/home_not-selected.png'/>
+                </Link>
+                <Link to='/search'>
+                    <img src='/images/search_not-selected.png'/>
+                </Link>
+                <Link to='/profile'>
+                    <img src='/images/profile_selected.png'/>
+                </Link>
+                <span>
+                    <Link
+                        to='/login'
+                        onClick={logout}
+                    >
+                        Logout
+                    </Link>
+                </span>
                 </>
             break
     }

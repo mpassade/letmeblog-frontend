@@ -17,6 +17,7 @@ html body {
   font-size: 1.2em;
   font-family: 'Coiny';
   white-space: nowrap;
+  padding-left: 1rem;
 }
 
 .nav span a {
