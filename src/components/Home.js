@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import Nav from './Nav'
 import axios from 'axios'
 
-class Search extends Component {
+class Home extends Component {
     state = {
         user: {},
         isAuthenticated: true
@@ -38,11 +38,11 @@ class Search extends Component {
         return (
             <>
             <Nav
-                page='search'
+                page='home'
             />
             </>
         )
     }
 }
 
-export default Search
+export default Home

@@ -5,6 +5,8 @@ import Login from './Login'
 import Register from './Register'
 import SetPwd from './SetPwd'
 import Profile from './Profile'
+import Search from './Search'
+import Home from './Home'
 
 class App extends Component {
   render(){
@@ -16,6 +18,8 @@ class App extends Component {
           <Route path='/register' exact component={Register}/>
           <Route path='/set-password/:id' exact component={SetPwd}/>
           <Route path='/profile' exact component={Profile}/>
+          <Route path='/search' exact component={Search}/>
+          <Route path='/home' exact component={Home}/>
           <Redirect to='/'/>
         </Switch>
 

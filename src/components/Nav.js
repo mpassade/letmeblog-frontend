@@ -31,7 +31,7 @@ const Nav = (props) => {
                 </Link>
                 </>
             break
-        case (props.page==='profile'):
+        case (props.page==='profile' || props.page==='search' || props.page==='home'):
             content =
                 <>
                 <Link to='/home'>

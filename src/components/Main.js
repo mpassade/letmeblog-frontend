@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import Nav from './Nav'
 import Header from './Header'
-import Search from './Search'
+import SearchBox from './SearchBox'
 
 class Main extends Component {
     state = {
@@ -27,7 +27,7 @@ class Main extends Component {
             />
             <div className='main'>
                 <Header/>
-                <Search/>
+                <SearchBox/>
             </div>
             </>
         )
