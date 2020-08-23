@@ -86,21 +86,33 @@ class Edit extends Component {
         }
         axios.get('/user', axiosConfig).then(res => {
             if (res.data.user){
-                return this.setState({
-                    user: res.data.user,
-                    input: {
-                        id: res.data.user.id,
-                        fname: res.data.user.firstName,
-                        lname: res.data.user.lastName,
-                        username: res.data.user.username,
-                        email: res.data.user.email,
-                        bio: res.data.user.bio,
-                        privacy: res.data.user.privacy,
-                        picture: res.data.user.picture
-                    }
-                })
+                const input = {
+                    id: res.data.user.id,
+                    fname: res.data.user.firstName,
+                    lname: res.data.user.lastName,
+                    username: res.data.user.username,
+                    email: res.data.user.email,
+                    bio: res.data.user.bio,
+                    privacy: res.data.user.privacy,
+                    picture: res.data.user.picture
+                }
+                if (this.props.location.state){
+                    let message = [...this.props.location.state.message]
+                    this.props.history.replace('/edit-profile', null)
+                    return this.setState({
+                        message,
+                        input,
+                        user: res.data.user
+                    })
+                } else {
+                    return this.setState({
+                        user: res.data.user,
+                        input
+                    })
+                }
+            } else {
+                return this.setState({isAuthenticated: res.data.isAuthenticated})
             }
-            return this.setState({isAuthenticated: res.data.isAuthenticated})
         }).catch(() => {
             return this.setState({isAuthenticated: false})
         })
