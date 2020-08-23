@@ -57,6 +57,12 @@
                     font-weight: bold;
                     font-size: 0.8em;
                     white-space: nowrap;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    &:focus {
+                        outline: none;
+                    }
                 }
                 div {
                     display: flex;

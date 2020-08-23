@@ -174,6 +174,10 @@ html body {
   font-family: 'Coiny';
 }
 
+.login button:hover {
+  cursor: pointer;
+}
+
 .login button:focus {
   outline: none;
 }
@@ -272,6 +276,10 @@ html body {
   font-family: 'Coiny';
 }
 
+.register button:hover {
+  cursor: pointer;
+}
+
 .register button:focus {
   outline: none;
 }
@@ -358,6 +366,10 @@ html body {
   height: 3rem;
   font-size: 1.5em;
   font-family: 'Coiny';
+}
+
+.setPwd button:hover {
+  cursor: pointer;
 }
 
 .setPwd button:focus {
@@ -472,6 +484,14 @@ html body {
   font-weight: bold;
   font-size: 0.8em;
   white-space: nowrap;
+}
+
+.user .user-info .col-2 .row-2 button:hover {
+  cursor: pointer;
+}
+
+.user .user-info .col-2 .row-2 button:focus {
+  outline: none;
 }
 
 .user .user-info .col-2 .row-2 div {

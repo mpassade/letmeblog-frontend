@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const UserInfo = (props) => {
     return (
@@ -30,7 +30,9 @@ const UserInfo = (props) => {
                         <button>Create Post</button>
                         <div>
                             <button>Edit Profile</button>
-                            <button>Change Password</button>
+                            <Link to='/change-password'>
+                                <button>Change Password</button>
+                            </Link>
                         </div>
                     </div>
                 </div>
