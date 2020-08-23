@@ -653,10 +653,14 @@ html body {
   color: red;
 }
 
+.edit .no-change {
+  color: blue;
+}
+
 .edit .success {
   color: green;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 
 .edit input {

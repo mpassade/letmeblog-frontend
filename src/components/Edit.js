@@ -5,6 +5,7 @@ import axios from 'axios'
 
 class Edit extends Component {
     state = {
+        user: {},
         message: [{
             type: '',
             text: ''
@@ -30,16 +31,46 @@ class Edit extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault()
+        if (this.state.input.fname===this.state.user.firstName &&
+            this.state.input.lname===this.state.user.lastName &&
+            this.state.input.username===this.state.user.username &&
+            this.state.input.email===this.state.user.email &&
+            this.state.input.bio===this.state.user.bio &&
+            this.state.input.privacy===this.state.user.privacy &&
+            this.state.input.picture===this.state.user.picture){
+                let message = [...this.state.message]
+                message[0] = {
+                    type: 'no-change',
+                    text: 'No changes have been made'
+                }
+                return this.setState({message})
+        }
         const axiosConfig = {
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8',
                 'Access-Control-Allow-Origin': '*'
             }
         }
-        axios.put(`/edit-profile/${this.state.user.username}`, this.state.input, axiosConfig).then(res => {
+        axios.put(`/edit-profile/${this.state.user.id}`, this.state.input, axiosConfig).then(res => {
             let message = [...this.state.message]
-            message[0] = res.data
-            this.setState({message})
+            message[0] = res.data.message
+            if (message[0].type==='success'){
+                this.setState({
+                    user: res.data.user,
+                    message,
+                    input: {
+                        fname: res.data.user.firstName,
+                        lname: res.data.user.lastName,
+                        username: res.data.user.username,
+                        email: res.data.user.email,
+                        bio: res.data.user.bio,
+                        privacy: res.data.user.privacy,
+                        picture: res.data.user.picture
+                    }
+                })
+            } else {
+                this.setState({message})
+            }
         }).catch(err => {
             console.log(`Server Error: ${err}`)
         })
@@ -56,7 +87,9 @@ class Edit extends Component {
         axios.get('/user', axiosConfig).then(res => {
             if (res.data.user){
                 return this.setState({
+                    user: res.data.user,
                     input: {
+                        id: res.data.user.id,
                         fname: res.data.user.firstName,
                         lname: res.data.user.lastName,
                         username: res.data.user.username,
@@ -76,7 +109,7 @@ class Edit extends Component {
         if (!this.state.isAuthenticated){
             return <Redirect to='/'/>
         }
-        console.log(this.state.input)
+        console.log(this.state)
         return (
             <>
             <Nav
@@ -128,7 +161,7 @@ class Edit extends Component {
                         value={this.state.input.email}
                     />
                     <div className='privacy'>
-                        <label for='privacy'>Privacy:</label>
+                        <label htmlFor='privacy'>Privacy:</label>
                         <select
                             name="privacy"
                             onChange={this.handleChange}

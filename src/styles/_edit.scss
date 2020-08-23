@@ -25,10 +25,13 @@
     .error {
         color: red;
     }
+    .no-change {
+        color: blue;
+    }
     .success {
         color: green;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        margin-left: 3rem;
+        margin-right: 3rem;
     }
     input {
         border: 1px solid black;
