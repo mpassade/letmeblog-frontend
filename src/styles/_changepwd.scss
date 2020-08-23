@@ -1,0 +1,69 @@
+.change-pwd {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 35rem;
+    width: 60%;
+    min-width: 25rem;
+    background: white;
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    header {
+        font-size: 4em;
+        font-family: 'Coiny';
+        margin-top: 3rem;
+        text-align: center;
+    }
+    span {
+        font-size: 1.2em;
+        text-align: center;
+    }
+    .error {
+        color: red;
+    }
+    .success {
+        color: green;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    input {
+        margin-top: 1rem;
+        border: 1px solid black;
+        border-radius: 25px;
+        font-size: 1em;
+        width: 70%;
+        height: 2rem;
+        text-align: center;
+        ::placeholder {
+            color: #727272;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    button {
+        margin-top: 3rem;
+        border: 1px solid #FFAB5F;
+        border-radius: 25px;
+        background: #FFAB5F;
+        width: 10rem;
+        height: 3rem;
+        font-size: 1.5em;
+        font-family: 'Coiny';
+        &:hover {
+            cursor: pointer;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    .change {
+        margin-right: 1rem;
+    }
+    .cancel {
+        margin-left: 1rem;
+    }
+}
