@@ -610,4 +610,140 @@ html body {
 .change-pwd .cancel {
   margin-left: 1rem;
 }
+
+.edit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 55rem;
+  width: 50%;
+  min-width: 25rem;
+  background: white;
+  border-radius: 25px;
+  padding-bottom: 1rem;
+  margin: auto;
+}
+
+.edit img {
+  width: 30%;
+}
+
+.edit header {
+  font-size: 4em;
+  font-family: 'Coiny';
+  text-align: center;
+}
+
+.edit span {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.edit .error {
+  color: red;
+}
+
+.edit .success {
+  color: green;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.edit input {
+  border: 1px solid black;
+  border-radius: 25px;
+  font-size: 1em;
+  width: 70%;
+  height: 2rem;
+  text-indent: 1rem;
+}
+
+.edit input ::-webkit-input-placeholder {
+  color: #727272;
+}
+
+.edit input :-ms-input-placeholder {
+  color: #727272;
+}
+
+.edit input ::-ms-input-placeholder {
+  color: #727272;
+}
+
+.edit input ::placeholder {
+  color: #727272;
+}
+
+.edit input:focus {
+  outline: none;
+}
+
+.edit textArea {
+  height: 10rem;
+  width: 70%;
+  resize: none;
+}
+
+.edit textArea:focus {
+  outline: none;
+}
+
+.edit button {
+  border: 1px solid #FFAB5F;
+  border-radius: 25px;
+  background: #FFAB5F;
+  width: 10rem;
+  height: 3rem;
+  font-size: 1.5em;
+  font-family: 'Coiny';
+}
+
+.edit button:hover {
+  cursor: pointer;
+}
+
+.edit button:focus {
+  outline: none;
+}
+
+.edit .submit {
+  margin-right: 1rem;
+}
+
+.edit .cancel {
+  margin-left: 1rem;
+}
+
+.edit .privacy {
+  width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.2em;
+}
+
+.edit .privacy select {
+  background: #FFAB5F;
+  border: 1px solid #FFAB5F;
+  border-radius: 25px;
+  width: 7rem;
+  text-align-last: center;
+}
+
+.edit .privacy select:focus {
+  outline: none;
+}
 /*# sourceMappingURL=style.css.map */

@@ -8,6 +8,7 @@ import Profile from './Profile'
 import Search from './Search'
 import Home from './Home'
 import ChangePwd from './ChangePwd'
+import Edit from './Edit'
 
 class App extends Component {
   render(){
@@ -22,6 +23,7 @@ class App extends Component {
           <Route path='/search' exact component={Search}/>
           <Route path='/home' exact component={Home}/>
           <Route path='/change-password' exact component={ChangePwd}/>
+          <Route path='/edit-profile' exact component={Edit}/>
           <Redirect to='/'/>
         </Switch>
 

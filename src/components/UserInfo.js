@@ -29,7 +29,9 @@ const UserInfo = (props) => {
                     <div className='row-2'>
                         <button>Create Post</button>
                         <div>
-                            <button>Edit Profile</button>
+                            <Link to='/edit-profile'>
+                                <button>Edit Profile</button>
+                            </Link>
                             <Link to='/change-password'>
                                 <button>Change Password</button>
                             </Link>

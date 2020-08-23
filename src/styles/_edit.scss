@@ -1,0 +1,92 @@
+.edit {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 55rem;
+    width: 50%;
+    min-width: 25rem;
+    background: white;
+    border-radius: 25px;
+    padding-bottom: 1rem;
+    margin: auto;
+    img {
+        width: 30%;
+    }
+    header {
+        font-size: 4em;
+        font-family: 'Coiny';
+        text-align: center;
+    }
+    span {
+        font-size: 1.2em;
+        text-align: center;
+    }
+    .error {
+        color: red;
+    }
+    .success {
+        color: green;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    input {
+        border: 1px solid black;
+        border-radius: 25px;
+        font-size: 1em;
+        width: 70%;
+        height: 2rem;
+        text-indent: 1rem;
+        ::placeholder {
+            color: #727272;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    textArea {
+        height: 10rem;
+        width: 70%;
+        resize: none;
+        &:focus {
+            outline: none;
+        }
+    }
+    button {
+        border: 1px solid #FFAB5F;
+        border-radius: 25px;
+        background: #FFAB5F;
+        width: 10rem;
+        height: 3rem;
+        font-size: 1.5em;
+        font-family: 'Coiny';
+        &:hover {
+            cursor: pointer;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    .submit {
+        margin-right: 1rem;
+    }
+    .cancel {
+        margin-left: 1rem;
+    }
+    .privacy {
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.2em;
+        select {
+            background: #FFAB5F;
+            border: 1px solid #FFAB5F;
+            border-radius: 25px;
+            width: 7rem;
+            text-align-last: center;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}

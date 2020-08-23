@@ -36,6 +36,7 @@ class Profile extends Component {
         if (!this.state.isAuthenticated){
             return <Redirect to='/'/>
         }
+        console.log(this.state.user)
         return (
             <>
             <Nav
