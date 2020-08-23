@@ -363,4 +363,129 @@ html body {
 .setPwd button:focus {
   outline: none;
 }
+
+.user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 60%;
+  min-width: 25rem;
+  background: white;
+  border-radius: 25px;
+  margin: 7rem auto 2rem;
+}
+
+.user header {
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 2em;
+  font-family: 'Coiny';
+}
+
+.user .user-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.user .user-info .col-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 45%;
+}
+
+.user .user-info .col-1 img {
+  width: 65%;
+}
+
+.user .user-info .col-1 .name {
+  margin-top: 1rem;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.user .user-info .col-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  font-weight: bold;
+  width: 45%;
+  font-size: 1.5em;
+  margin-top: -2rem;
+}
+
+.user .user-info .col-2 .row-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
+}
+
+.user .user-info .col-2 .row-1 div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.user .user-info .col-2 .row-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.user .user-info .col-2 .row-2 button {
+  background: #FFAB5F;
+  border: 1px solid #FFAB5F;
+  border-radius: 25px;
+  height: 2rem;
+  font-weight: bold;
+  font-size: 0.8em;
+  white-space: nowrap;
+}
+
+.user .user-info .col-2 .row-2 div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-top: 1rem;
+}
+
+.user .user-info .col-2 .row-2 div button {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 /*# sourceMappingURL=style.css.map */
