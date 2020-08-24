@@ -24,6 +24,43 @@ class Edit extends Component {
     isAuthenticated = () => {
         return localStorage.getItem('token')
     }
+    handleImageUpload = e => {
+        const file = e.target.files[0]
+        if (file) {
+            const reader = new FileReader()
+            const {current} = this.uploadedImage
+            const input = {...this.state.input}
+            reader.onload = (event) => {
+                current.src = event.target.result
+                input['picture'] = event.target.result
+            }
+            reader.readAsDataURL(file)
+            const data = new FormData()
+            data.append('file', file)
+            const axiosConfig = {
+                headers: {
+                    'Content-Type': 'application/json; charset=UTF-8',
+                    'Access-Control-Allow-Origin': '*'
+                }
+            }
+            axios.post(`http://localhost:8000/upload/${this.state.user.id}`, data, axiosConfig).then(res => {
+                if (res.data.user){
+                    let user = {...this.state.user}
+                    user['picture'] = res.data.user.picture
+                    let message = [...this.state.message]
+                    message[0] = res.data.message
+                    this.setState({
+                        user,
+                        input,
+                        message
+                    })
+                }
+            }).catch(err => {
+                console.log(`Server Error: ${err}`)
+            })
+        }
+    }
+    uploadedImage = React.createRef()
     handleChange = (e) => {
         let input = {...this.state.input}
         input[e.target.name] = e.target.value
@@ -36,8 +73,8 @@ class Edit extends Component {
             this.state.input.username===this.state.user.username &&
             this.state.input.email===this.state.user.email &&
             this.state.input.bio===this.state.user.bio &&
-            this.state.input.privacy===this.state.user.privacy &&
-            this.state.input.picture===this.state.user.picture){
+            this.state.input.privacy===this.state.user.privacy
+            ){
                 let message = [...this.state.message]
                 message[0] = {
                     type: 'no-change',
@@ -121,7 +158,6 @@ class Edit extends Component {
         if (!this.state.isAuthenticated){
             return <Redirect to='/'/>
         }
-        console.log(this.state)
         return (
             <>
             <Nav
@@ -132,8 +168,20 @@ class Edit extends Component {
                 className={'edit'}
                 >
                     <header>Edit Profile</header>
-                    <img src={this.state.input.picture}/>
-                    <span>Change Profile Photo</span>
+                    <img
+                        src={this.state.input.picture}
+                        ref={this.uploadedImage}
+                    />
+                    <label className='upload'>
+                        <span>Change Profile Photo</span>
+                        <input
+                            type="file"
+                            accept="image/*" 
+                            onChange={this.handleImageUpload}
+                            multiple = {false}
+                        /> 
+                    </label>
+                    
                     {this.state.message.map((msg, idx) => {
                         return (
                             <span

@@ -22,11 +22,16 @@
             width: 45%;
             img {
                 width: 65%;
+                height: 15rem;
+                border-radius: 50%;
             }
             .name {
                 margin-top: 1rem;
                 font-size: 1.5em;
                 font-weight: bold;
+            }
+            span, p {
+                margin-left: 1rem;
             }
         }
         .col-2 {
@@ -63,6 +68,9 @@
                     &:focus {
                         outline: none;
                     }
+                }
+                .create {
+                    width: 100%;
                 }
                 div {
                     display: flex;

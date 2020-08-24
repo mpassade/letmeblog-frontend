@@ -421,12 +421,18 @@ html body {
 
 .user .user-info .col-1 img {
   width: 65%;
+  height: 15rem;
+  border-radius: 50%;
 }
 
 .user .user-info .col-1 .name {
   margin-top: 1rem;
   font-size: 1.5em;
   font-weight: bold;
+}
+
+.user .user-info .col-1 span, .user .user-info .col-1 p {
+  margin-left: 1rem;
 }
 
 .user .user-info .col-2 {
@@ -494,6 +500,10 @@ html body {
   outline: none;
 }
 
+.user .user-info .col-2 .row-2 .create {
+  width: 100%;
+}
+
 .user .user-info .col-2 .row-2 div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -520,7 +530,7 @@ html body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 35rem;
+  height: 30rem;
   width: 60%;
   min-width: 25rem;
   background: white;
@@ -635,7 +645,9 @@ html body {
 }
 
 .edit img {
-  width: 30%;
+  width: 40%;
+  height: 15rem;
+  border-radius: 50%;
 }
 
 .edit header {
@@ -749,5 +761,110 @@ html body {
 
 .edit .privacy select:focus {
   outline: none;
+}
+
+.edit .upload input {
+  display: none;
+}
+
+.edit .upload:hover {
+  cursor: pointer;
+}
+
+.post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: 30rem;
+  width: 60%;
+  min-width: 25rem;
+  background: white;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.post span {
+  font-size: 1.2em;
+  text-align: center;
+  color: red;
+}
+
+.post input {
+  border: 1px solid black;
+  border-radius: 25px;
+  font-size: 1em;
+  width: 70%;
+  height: 2rem;
+  text-align: center;
+}
+
+.post input ::-webkit-input-placeholder {
+  color: #727272;
+}
+
+.post input :-ms-input-placeholder {
+  color: #727272;
+}
+
+.post input ::-ms-input-placeholder {
+  color: #727272;
+}
+
+.post input ::placeholder {
+  color: #727272;
+}
+
+.post input:focus {
+  outline: none;
+}
+
+.post textArea {
+  height: 20rem;
+  width: 80%;
+  resize: none;
+}
+
+.post textArea:focus {
+  outline: none;
+}
+
+.post button {
+  border: 1px solid #FFAB5F;
+  border-radius: 25px;
+  background: #FFAB5F;
+  width: 10rem;
+  height: 3rem;
+  font-size: 1.5em;
+  font-family: 'Coiny';
+}
+
+.post button:hover {
+  cursor: pointer;
+}
+
+.post button:focus {
+  outline: none;
+}
+
+.post .create-post {
+  margin-right: 1rem;
+}
+
+.post .cancel {
+  margin-left: 1rem;
 }
 /*# sourceMappingURL=style.css.map */
