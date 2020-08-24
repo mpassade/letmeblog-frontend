@@ -14,6 +14,7 @@ class Post extends Component {
             title: '',
             blog: ''
         },
+        done: false,
         isAuthenticated: true
     }
     isAuthenticated = () => {
@@ -32,21 +33,13 @@ class Post extends Component {
                 'Access-Control-Allow-Origin': '*'
             }
         }
-        axios.put(`/change-password/${this.state.user.username}`, this.state.input, axiosConfig).then(res => {
-            let message = [...this.state.message]
-            message[0] = res.data
-            if (message[0].type==='success'){
-                let input = {
-                    oldPass: '',
-                    newPass: '',
-                    confirmNew: ''
-                }
-                this.setState({
-                    message,
-                    input
-                })
-            } else {
+        axios.post(`http://localhost:8000/create-post/${this.state.user.id}`, this.state.input, axiosConfig).then(res => {
+            if (res.data.type==='error'){
+                let message = [...this.state.message]
+                message[0] = res.data
                 this.setState({message})
+            } else if (res.data.type==='success'){
+                this.setState({done: true})
             }
         }).catch(err => {
             console.log(`Server Error: ${err}`)
@@ -61,7 +54,7 @@ class Post extends Component {
                 Authorization: 'Bearer ' + localStorage.getItem('token')
             }
         }
-        axios.get('/user', axiosConfig).then(res => {
+        axios.get('http://localhost:8000/user', axiosConfig).then(res => {
             if (res.data.user){
                 return this.setState({user: res.data.user})
             }
@@ -73,6 +66,9 @@ class Post extends Component {
     render(){
         if (!this.state.isAuthenticated){
             return <Redirect to='/'/>
+        }
+        if (this.state.done){
+            return <Redirect to='/profile'/>
         }
         return (
             <>
@@ -110,7 +106,6 @@ class Post extends Component {
                         <button type='submit' className='create-post'>Post</button>
                         <Link to='/profile'><button className='cancel'>Cancel</button></Link>
                     </div>
-                    
                 </div>
             </form>
             </>

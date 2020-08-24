@@ -88,6 +88,7 @@ class Edit extends Component {
                 'Access-Control-Allow-Origin': '*'
             }
         }
+        
         axios.put(`/edit-profile/${this.state.user.id}`, this.state.input, axiosConfig).then(res => {
             let message = [...this.state.message]
             message[0] = res.data.message

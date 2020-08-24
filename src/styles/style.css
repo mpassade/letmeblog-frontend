@@ -4,6 +4,7 @@ html {
 
 html body {
   background: linear-gradient(225deg, #ff4c4c, rgba(0, 0, 0, 0)), linear-gradient(135deg, #ffb834, rgba(0, 0, 0, 0)), linear-gradient(360deg, #ffff6a, rgba(0, 0, 0, 0));
+  background-attachment: fixed;
 }
 
 .nav {
