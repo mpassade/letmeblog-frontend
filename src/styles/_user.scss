@@ -6,6 +6,7 @@
     background: white;
     border-radius: 25px;
     margin: 7rem auto 2rem;
+    padding-bottom: 1rem;
     header {
         text-align: center;
         margin-top: 1rem;
@@ -30,8 +31,15 @@
                 font-size: 1.5em;
                 font-weight: bold;
             }
-            span, p {
+            span, textArea {
                 margin-left: 1rem;
+            }
+            textArea {
+                border: none;
+                resize: none;
+                &:focus {
+                    outline: none;
+                }
             }
         }
         .col-2 {

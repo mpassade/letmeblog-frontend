@@ -9,7 +9,7 @@ const UserInfo = (props) => {
                 <div className='col-1'>
                     <img src={props.pic}/>
                     <span className='name'>{props.fname} {props.lname}</span>
-                    <p>{props.bio}</p>
+                    <textarea value={props.bio} readOnly/>
                 </div>
                 <div className='col-2'>
                     <div className='row-1'>

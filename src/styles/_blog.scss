@@ -1,0 +1,19 @@
+.blog {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 5rem;
+    padding: 2rem;
+    width: 50%;
+    background: white;
+    border-radius: 25px;
+    font-size: 1.2em;
+    .right {
+        display: block;
+        text-align: right;
+    }
+    header {
+        font-size: 3em;
+        font-family: 'Coiny';
+    }
+}

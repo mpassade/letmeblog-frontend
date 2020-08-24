@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import Nav from './Nav'
 import UserInfo from './UserInfo'
+import BlogPost from './BlogPost'
 import axios from 'axios'
 
 class Profile extends Component {
     state = {
         user: {},
-        isAuthenticated: true
+        isAuthenticated: true,
+        blogs: []
     }
     isAuthenticated = () => {
         return localStorage.getItem('token')
@@ -22,9 +24,12 @@ class Profile extends Component {
                 Authorization: 'Bearer ' + localStorage.getItem('token')
             }
         }
-        axios.get('/user', axiosConfig).then(res => {
+        axios.get('/user-blog', axiosConfig).then(res => {
             if (res.data.user){
-                return this.setState({user: res.data.user})
+                return this.setState({
+                    user: res.data.user,
+                    blogs: res.data.blogs
+                })
             }
             return this.setState({isAuthenticated: res.data.isAuthenticated})
         }).catch(() => {
@@ -35,7 +40,7 @@ class Profile extends Component {
     render(){
         if (!this.state.isAuthenticated){
             return <Redirect to='/'/>
-        }
+        } console.log(this.state)
         return (
             <>
             <Nav
@@ -51,6 +56,17 @@ class Profile extends Component {
                 follows={this.state.user.follows}
                 bio={this.state.user.bio}
             />
+            {this.state.blogs.map((blogs, idx) => {
+                return (
+                    <BlogPost
+                        key={idx}
+                        home={false}
+                        time={blogs.timestamp}
+                        title={blogs.title}
+                        article={blogs.content}
+                    />
+                )
+            })}
             </>
         )
     }

@@ -390,6 +390,7 @@ html body {
   background: white;
   border-radius: 25px;
   margin: 7rem auto 2rem;
+  padding-bottom: 1rem;
 }
 
 .user header {
@@ -432,8 +433,17 @@ html body {
   font-weight: bold;
 }
 
-.user .user-info .col-1 span, .user .user-info .col-1 p {
+.user .user-info .col-1 span, .user .user-info .col-1 textArea {
   margin-left: 1rem;
+}
+
+.user .user-info .col-1 textArea {
+  border: none;
+  resize: none;
+}
+
+.user .user-info .col-1 textArea:focus {
+  outline: none;
 }
 
 .user .user-info .col-2 {
@@ -867,5 +877,32 @@ html body {
 
 .post .cancel {
   margin-left: 1rem;
+}
+
+.blog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+  margin-top: 5rem;
+  padding: 2rem;
+  width: 50%;
+  background: white;
+  border-radius: 25px;
+  font-size: 1.2em;
+}
+
+.blog .right {
+  display: block;
+  text-align: right;
+}
+
+.blog header {
+  font-size: 3em;
+  font-family: 'Coiny';
 }
 /*# sourceMappingURL=style.css.map */
