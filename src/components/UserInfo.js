@@ -11,13 +11,16 @@ const UserInfo = (props) => {
                     <div>
                     {props.authenticated && !props.you ?
                         <>
-                        <button>{props.follows ? 'Unfollow' : 'Follow'}</button>
+                        {props.follows ?
+                            <button onClick={props.unfollow} id={props.id}>Unfollow</button>
+                        :
+                            <button onClick={props.follow} id={props.id}>Follow</button>}
                         <Link to={`/user/${props.username}`}>
                             <button>View Profile</button>
                         </Link>
                         </>
                     :
-                        <Link to={'/profile'}>
+                        <Link to={`/user/${props.username}`}>
                             <button className='single-btn'>View Profile</button>
                         </Link>
                     }

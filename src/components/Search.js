@@ -18,11 +18,48 @@ class Search extends Component {
     }
     follows = (profile) => {
         for (const user of this.state.user.follows){
-            if (JSON.stringify(user._id)===JSON.stringify(profile._id)){
+            if (JSON.stringify(user)===JSON.stringify(profile._id)){
                 return true
             }
         }
         return false
+    }
+    follow = (e) => {
+        const axiosConfig = {
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+                'Access-Control-Allow-Origin': '*'
+            }
+        }
+        axios.put(`http://localhost:8000/follow/${this.state.user.id}/${e.target.id}`, {}, axiosConfig)
+        .then(res => {
+            
+            if (res.data.user){
+                this.setState({
+                    user: res.data.user
+                })
+            }
+        }).catch(err => {
+            console.log(`Server Error: ${err}`)
+        })
+    }
+    unfollow = (e) => {
+        const axiosConfig = {
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+                'Access-Control-Allow-Origin': '*'
+            }
+        }
+        axios.put(`http://localhost:8000/unfollow/${this.state.user.id}/${e.target.id}`, {}, axiosConfig)
+        .then(res => {
+            if (res.data.user){
+                this.setState({
+                    user: res.data.user
+                })
+            }
+        }).catch(err => {
+            console.log(`Server Error: ${err}`)
+        })
     }
     handleChange = (e) => {
         let input = {...this.state.input}
@@ -33,7 +70,6 @@ class Search extends Component {
         e.preventDefault()
         axios.get(`http://localhost:8000/search/${this.state.input.search}`).then(res => {
             if (res.data.users){
-                console.log(res.data.users)
                 return this.setState({
                     users: res.data.users
                 })
@@ -85,6 +121,7 @@ class Search extends Component {
                 return (
                     <UserInfo
                         key={idx}
+                        id={profile._id}
                         page='search'
                         authenticated={this.state.isAuthenticated}
                         pic={profile.picture}
@@ -92,6 +129,8 @@ class Search extends Component {
                         you={JSON.stringify(profile._id)===JSON.stringify(this.state.user.id)}
                         username={profile.username}
                         div='searched-user'
+                        follow={this.follow}
+                        unfollow={this.unfollow}
                     />
                 )
             })}
