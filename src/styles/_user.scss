@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     width: 60%;
-    min-width: 25rem;
     background: white;
     border-radius: 25px;
     margin: 7rem auto 2rem;
@@ -12,7 +11,7 @@
         margin-top: 1rem;
         font-weight: bold;
         font-size: 2em;
-        font-family: 'Coiny';
+        font-family: 'Coiny';        
     }
     .user-info {
         display: flex;

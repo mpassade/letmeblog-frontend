@@ -20,7 +20,7 @@ const Nav = (props) => {
                     <img src='/images/home_not-selected.png'/>
                 </Link>
             break
-        case (props.page==='setPwd'):
+        case (props.page==='setPwd' || props.page==='search-not-logged-in' || props.page==='forgot'):
             content =
                 <>
                 <span>

@@ -386,7 +386,6 @@ html body {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 60%;
-  min-width: 25rem;
   background: white;
   border-radius: 25px;
   margin: 7rem auto 2rem;
@@ -904,5 +903,107 @@ html body {
 .blog header {
   font-size: 3em;
   font-family: 'Coiny';
+}
+
+.searchbox {
+  width: 30%;
+  min-width: 10rem;
+  height: 1.6rem;
+  font-size: 1em;
+  text-align: center;
+  background: white url("/images/search.png") no-repeat 0 50%/1.45em;
+  border: none;
+  border-radius: 25px;
+}
+
+.searchbox ::-webkit-input-placeholder {
+  color: #727272;
+}
+
+.searchbox :-ms-input-placeholder {
+  color: #727272;
+}
+
+.searchbox ::-ms-input-placeholder {
+  color: #727272;
+}
+
+.searchbox ::placeholder {
+  color: #727272;
+}
+
+.searchbox:focus {
+  outline: none;
+}
+
+.searchbox {
+  display: block;
+  margin: auto;
+  margin-top: 5rem;
+}
+
+.searched-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 60%;
+  margin: 5rem auto;
+  padding-bottom: 1rem;
+}
+
+.searched-user header {
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 2em;
+  font-family: 'Coiny';
+}
+
+.searched-user .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.searched-user .info img {
+  width: 25%;
+  height: 10rem;
+  border-radius: 50%;
+  margin-left: 10rem;
+}
+
+.searched-user .info div {
+  margin-left: 5rem;
+  width: 50%;
+}
+
+.searched-user .info div button {
+  background: #FF6058;
+  border: 1px solid #FF6058;
+  border-radius: 25px;
+  height: 4rem;
+  width: 10rem;
+  font-weight: bold;
+  font-size: 0.8em;
+  white-space: nowrap;
+}
+
+.searched-user .info div button:hover {
+  cursor: pointer;
+}
+
+.searched-user .info div button:focus {
+  outline: none;
+}
+
+.searched-user .info div .single-btn {
+  width: 80%;
 }
 /*# sourceMappingURL=style.css.map */

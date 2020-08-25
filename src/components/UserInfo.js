@@ -3,8 +3,29 @@ import { Link } from 'react-router-dom'
 
 const UserInfo = (props) => {
     return (
-        <div className='user'>
+        <div className={props.div}>
             <header>{props.username}</header>
+            {props.page==='search' ? 
+                <div className='info'>
+                    <img src={props.pic}/>
+                    <div>
+                    {props.authenticated && !props.you ?
+                        <>
+                        <button>{props.follows ? 'Unfollow' : 'Follow'}</button>
+                        <Link to={`/user/${props.username}`}>
+                            <button>View Profile</button>
+                        </Link>
+                        </>
+                    :
+                        <Link to={'/profile'}>
+                            <button className='single-btn'>View Profile</button>
+                        </Link>
+                    }
+                        
+                    </div>
+                </div>
+            : 
+            <>
             <div className='user-info'>
                 <div className='col-1'>
                     <img src={props.pic}/>
@@ -41,6 +62,8 @@ const UserInfo = (props) => {
                     </div>
                 </div>
             </div>
+                </>
+            }
         </div>
     )
 }

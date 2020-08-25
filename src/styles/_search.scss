@@ -1,0 +1,53 @@
+@import './searchbox';
+.searchbox {
+    display: block;
+    margin: auto;
+    margin-top: 5rem;
+}
+.searched-user {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 5rem auto;
+    padding-bottom: 1rem;
+    header {
+        text-align: center;
+        margin-top: 1rem;
+        font-weight: bold;
+        font-size: 2em;
+        font-family: 'Coiny';        
+    }
+    .info {
+        display: flex;
+        align-items: center;
+        img {
+            width: 25%;
+            height: 10rem;
+            border-radius: 50%;
+            margin-left: 10rem;
+        }
+        div {
+            margin-left: 5rem;
+            width: 50%;
+            button {
+                background: #FF6058;
+                border: 1px solid #FF6058;
+                border-radius: 25px;
+                height: 4rem;
+                width: 10rem;
+                font-weight: bold;
+                font-size: 0.8em;
+                white-space: nowrap;
+                &:hover {
+                    cursor: pointer;
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+            .single-btn {
+                width: 80%;
+            }
+        }
+    }
+}
