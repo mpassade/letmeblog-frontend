@@ -1026,4 +1026,93 @@ html body {
   white-space: nowrap;
   text-align: center;
 }
+
+.forgot {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 28rem;
+  width: 40%;
+  min-width: 25rem;
+  background: white;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.forgot header {
+  font-size: calc(48px + (64 - 48) * ((100vw - 300px) / (1600 - 300)));
+  font-family: 'Coiny';
+  margin-top: 3.5rem;
+  margin-bottom: -0.5rem;
+  text-align: center;
+}
+
+.forgot span {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.forgot .error {
+  color: red;
+}
+
+.forgot input {
+  margin-top: 1rem;
+  border: 1px solid black;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 1em;
+  width: 70%;
+  height: 2rem;
+}
+
+.forgot input ::-webkit-input-placeholder {
+  color: #727272;
+}
+
+.forgot input :-ms-input-placeholder {
+  color: #727272;
+}
+
+.forgot input ::-ms-input-placeholder {
+  color: #727272;
+}
+
+.forgot input ::placeholder {
+  color: #727272;
+}
+
+.forgot input:focus {
+  outline: none;
+}
+
+.forgot button {
+  margin-top: 2rem;
+  border: 1px solid #FFAB5F;
+  border-radius: 25px;
+  background: #FFAB5F;
+  width: 10rem;
+  height: 3rem;
+  font-size: 1.5em;
+  font-family: 'Coiny';
+}
+
+.forgot button:hover {
+  cursor: pointer;
+}
+
+.forgot button:focus {
+  outline: none;
+}
 /*# sourceMappingURL=style.css.map */

@@ -12,6 +12,8 @@ import Edit from './Edit'
 import Verify from './Verify'
 import Post from './Post'
 import User from './User'
+import Forgot from './Forgot'
+import Reset from './Reset'
 
 class App extends Component {
   render(){
@@ -30,6 +32,8 @@ class App extends Component {
           <Route path='/verify-email/:id/:code/:email' exact component={Verify}/>
           <Route path='/post' exact component={Post}/>
           <Route path='/user/:username' exact component={User}/>
+          <Route path='/forgot-password' exact component={Forgot}/>
+          <Route path='/reset-password/:id' exact component={Reset}/>
           <Redirect to='/'/>
         </Switch>
 
