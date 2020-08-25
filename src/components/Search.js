@@ -125,12 +125,14 @@ class Search extends Component {
                         page='search'
                         authenticated={this.state.isAuthenticated}
                         pic={profile.picture}
-                        follows={this.follows(profile)}
+                        followsFunc={this.follows(profile)}
                         you={JSON.stringify(profile._id)===JSON.stringify(this.state.user.id)}
                         username={profile.username}
                         div='searched-user'
                         follow={this.follow}
                         unfollow={this.unfollow}
+                        followers={this.state.user.followedBy}
+                        follows={this.state.user.follows ? this.state.user.follows.length : 0}
                     />
                 )
             })}

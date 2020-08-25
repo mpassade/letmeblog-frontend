@@ -53,7 +53,7 @@ class Profile extends Component {
                 lname={this.state.user.lastName}
                 posts={this.state.user.blogPosts!==undefined ? this.state.user.blogPosts.length : ''}
                 followers={this.state.user.followedBy}
-                follows={this.state.user.follows ? this.state.user.follows.length : 0}
+                follows={this.state.user.follows}
                 bio={this.state.user.bio}
                 div='user'
             />

@@ -11,7 +11,7 @@ const UserInfo = (props) => {
                     <div>
                     {props.authenticated && !props.you ?
                         <>
-                        {props.follows ?
+                        {props.followsFunc ?
                             <button onClick={props.unfollow} id={props.id}>Unfollow</button>
                         :
                             <button onClick={props.follow} id={props.id}>Follow</button>}
@@ -51,17 +51,33 @@ const UserInfo = (props) => {
                         </div>
                     </div>
                     <div className='row-2'>
-                        <Link to='/post'>
-                            <button className='create'>Create Post</button>
-                        </Link>
-                        <div>
-                            <Link to='/edit-profile'>
-                                <button>Edit Profile</button>
+                        {props.page==='user' ?
+                            props.privacy==='private' ?
+                                <button className='private'>Private Account</button>
+                            :
+                                props.authenticated ?
+                                    props.followsFunc ?
+                                        <button onClick={props.unfollow} id={props.id}>Unfollow</button>
+                                    :
+                                        <button onClick={props.follow} id={props.id}>Follow</button>
+                                :
+                                    <button>Public Account</button>
+                        : 
+                            <>
+                            <Link to='/post'>
+                                <button className='create'>Create Post</button>
                             </Link>
-                            <Link to='/change-password'>
-                                <button>Change Password</button>
-                            </Link>
-                        </div>
+                            <div>
+                                <Link to='/edit-profile'>
+                                    <button>Edit Profile</button>
+                                </Link>
+                                <Link to='/change-password'>
+                                    <button>Change Password</button>
+                                </Link>
+                            </div>
+                            </>
+                        }
+
                     </div>
                 </div>
             </div>
