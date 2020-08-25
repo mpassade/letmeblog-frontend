@@ -76,6 +76,17 @@
                         outline: none;
                     }
                 }
+                .private {
+                    background: #FF695C;
+                    &:hover {
+                        cursor: auto;
+                    }
+                }
+                .public-btn {
+                    &:hover {
+                        cursor: auto;
+                    }
+                }
                 .create {
                     width: 100%;
                 }

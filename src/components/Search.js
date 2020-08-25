@@ -17,9 +17,11 @@ class Search extends Component {
         return localStorage.getItem('token')
     }
     follows = (profile) => {
-        for (const user of this.state.user.follows){
-            if (JSON.stringify(user)===JSON.stringify(profile._id)){
-                return true
+        if (this.state.user.follows){
+            for (const user of this.state.user.follows){
+                if (JSON.stringify(user)===JSON.stringify(profile._id)){
+                    return true
+                }
             }
         }
         return false
@@ -68,18 +70,38 @@ class Search extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault()
-        axios.get(`http://localhost:8000/search/${this.state.input.search}`).then(res => {
-            if (res.data.users){
-                return this.setState({
-                    users: res.data.users
-                })
-            }
-        }).catch(err => {
-            console.log(`Server Error: ${err}`)
-        })
+        if (!this.state.input.search){
+            axios.get(`http://localhost:8000/search-all`).then(res => {
+                if (res.data.users){
+                    return this.setState({
+                        users: res.data.users
+                    })
+                }
+            }).catch(err => {
+                console.log(`Server Error: ${err}`)
+            })
+        } else {
+            axios.get(`http://localhost:8000/search/${this.state.input.search}`).then(res => {
+                if (res.data.users){
+                    return this.setState({
+                        users: res.data.users
+                    })
+                }
+            }).catch(err => {
+                console.log(`Server Error: ${err}`)
+            })
+        }
     }
     componentDidMount(){
         if (!this.isAuthenticated()){
+            if (this.props.location.state){
+                let users = [...this.props.location.state.users]
+                this.props.history.replace('/search', null)
+                return this.setState({
+                    users,
+                    isAuthenticated: false
+                })
+            }
             return this.setState({isAuthenticated: false})
         }
         const axiosConfig = {
@@ -130,6 +152,7 @@ class Search extends Component {
                         username={profile.username}
                         div='searched-user'
                         follow={this.follow}
+                        private={profile.private}
                         unfollow={this.unfollow}
                         followers={this.state.user.followedBy}
                         follows={this.state.user.follows ? this.state.user.follows.length : 0}

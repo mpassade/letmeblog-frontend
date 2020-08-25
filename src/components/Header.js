@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Header = () => {
+const Header = (props) => {
     return (
         <>
-        <header className='lmb'>
-            Let Me Blog
+        <header className={props.class}>
+            {props.text}
         </header>
         </>
     )

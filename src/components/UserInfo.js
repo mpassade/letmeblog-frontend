@@ -9,7 +9,7 @@ const UserInfo = (props) => {
                 <div className='info'>
                     <img src={props.pic}/>
                     <div>
-                    {props.authenticated && !props.you ?
+                    {props.authenticated && !props.you && !props.private ?
                         <>
                         {props.followsFunc ?
                             <button onClick={props.unfollow} id={props.id}>Unfollow</button>
@@ -61,7 +61,7 @@ const UserInfo = (props) => {
                                     :
                                         <button onClick={props.follow} id={props.id}>Follow</button>
                                 :
-                                    <button>Public Account</button>
+                                    <button className='public-btn'>Public Account</button>
                         : 
                             <>
                             <Link to='/post'>

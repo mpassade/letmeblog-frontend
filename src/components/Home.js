@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import Nav from './Nav'
+import UserInfo from './UserInfo'
+import Header from './Header'
 import axios from 'axios'
 
 class Home extends Component {
     state = {
-        user: {},
+        users: [],
         isAuthenticated: true
     }
     isAuthenticated = () => {
@@ -21,11 +23,11 @@ class Home extends Component {
                 Authorization: 'Bearer ' + localStorage.getItem('token')
             }
         }
-        axios.get('/user', axiosConfig).then(res => {
-            if (res.data.user){
-                return this.setState({user: res.data.user})
+        axios.get('http://localhost:8000/home', axiosConfig).then(res => {
+            if (res.data.users){
+                return this.setState({users: res.data.users})
             }
-            return this.setState({isAuthenticated: res.data.isAuthenticated})
+            return this.setState({isAuthenticated: false})
         }).catch(() => {
             return this.setState({isAuthenticated: false})
         })
@@ -40,6 +42,19 @@ class Home extends Component {
             <Nav
                 page='home'
             />
+            <Header class='home-header' text={this.state.users.length ? 'Following' : 'No Users Followed'}/>
+            {this.state.users.map((profile, idx) => {
+                return (
+                    <UserInfo
+                        key={idx}
+                        id={profile._id}
+                        page='search'
+                        pic={profile.picture}
+                        username={profile.username}
+                        div='searched-user'
+                    />
+                )
+            })}
             </>
         )
     }
