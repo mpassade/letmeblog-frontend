@@ -5,46 +5,76 @@ import UserInfo from './UserInfo'
 import BlogPost from './BlogPost'
 import axios from 'axios'
 
-class Profile extends Component {
+class User extends Component {
     state = {
+        username: '',
         user: {},
-        isAuthenticated: true,
-        blogs: []
+        noUser: false,
+        blogs: [],
+        isAuthenticated: false
     }
     isAuthenticated = () => {
         return localStorage.getItem('token')
     }
-
     componentDidMount(){
         if (!this.isAuthenticated()){
-            return this.setState({isAuthenticated: false})
+            axios.get(`http://localhost:8000/other-user-blog/${this.props.match.params.username}`)
+            .then(res => {
+                if (res.data.noUser){
+                    return this.setState({noUser: true})
+                }
+                if (res.data.blogs){
+                    return this.setState({
+                        user: res.data.user,
+                        blogs: res.data.blogs
+                    })
+                }
+                return this.setState({
+                    user: res.data.user
+                })
+            }).catch(() => {
+                return this.setState({noUser: true})
+            })
+            return
         }
         const axiosConfig = {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token')
             }
         }
-        axios.get('/user-blog', axiosConfig).then(res => {
-            if (res.data.user){
+        axios.get(`http://localhost:8000/other-auth/${this.props.match.params.username}`, axiosConfig).then(res => {
+            if (res.data.noUser){
+                return this.setState({noUser: true})
+            }
+            if (res.data.blogs){
                 return this.setState({
                     user: res.data.user,
-                    blogs: res.data.blogs
+                    blogs: res.data.blogs,
+                    username: res.data.username,
+                    isAuthenticated: true
                 })
             }
-            return this.setState({isAuthenticated: res.data.isAuthenticated})
+            return this.setState({
+                user: res.data.user,
+                username: res.data.username,
+                isAuthenticated: true
+            })
         }).catch(() => {
-            return this.setState({isAuthenticated: false})
+            return this.setState({noUser: true})
         })
 
     }
     render(){
-        if (!this.state.isAuthenticated){
+        if (this.state.noUser){
             return <Redirect to='/'/>
+        }
+        if (this.state.username===this.state.user.username){
+            return <Redirect to='/profile'/>
         }
         return (
             <>
             <Nav
-                page='profile'
+                page={this.state.isAuthenticated ? 'user' : 'user-pg'}
             />
             <UserInfo
                 username={this.state.user.username}
@@ -73,4 +103,4 @@ class Profile extends Component {
     }
 }
 
-export default Profile
+export default User
